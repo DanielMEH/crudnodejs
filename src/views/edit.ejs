@@ -1,0 +1,36 @@
+<%- include('./components/header') %>
+<div class="container  mt-5">
+    <div class="row align-items-start">
+        <div class="col">
+            Actualizar registros 
+        </div>
+        <div class="col">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/update/<%= data.id %> " method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">nombre de la tarea</label>
+                                <input type="text" class="form-control" id="name" value="<%= data.taskname %>" aria-describedby="emailHelp"
+                                    name="taskname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">descripción</label>
+                                <input type="text" class="form-control" id="telefono" value="<%= data.taskdescription %>" name="taskdescription">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">aceptar condiciones</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

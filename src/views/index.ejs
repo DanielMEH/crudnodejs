@@ -1,0 +1,84 @@
+<%- include('./components/header') %>
+
+<title>
+    
+</title>
+
+    <div class="text-center m-3 border-bottom pb-4">
+        <h2>Crud, con Nodejs, Espress Timeago, Ejs Mysql, Bootstrap</h2>
+    </div>
+    <h1 class="text-center m-3">Formulario</h1>
+
+    <div class="container  mt-5">
+        <div class="row align-items-start">
+            <div class="col">
+                <h3>Formulario de taras</h3>
+            </div>
+            <div class="col">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/add" method="post">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">nombre de la tarea</label>
+                                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                                        name="taskname">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">descripción</label>
+                                    <input type="text" class="form-control" id="telefono" name="taskdescription">
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">aceptar condiciones</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container mt-5 mt-5">
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">task name</th>
+                        <th scope="col">task description</th>
+                        <th scope="col">fecha</th>
+                        <th>Ajustes</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                   <% if (data) { %>
+                    
+
+                    <% for(let i = 0; i < data.length; i++) { %> 
+
+                              <tr>
+                                  <td><%= i+1 %> </td>
+                                  <td><%= data[i].taskname %></td>
+                                  <td><%= data[i].taskdescription %></td>
+                                  <td><%= timeago.format(data[i].fecha) %></td>
+                                  <td>
+                                      <a href="/delete/<%= data[i].id %> " class="btn btn-danger">Eliminar</a>
+                                      <a href="/update/<%= data[i].id %> " class="btn btn-primary">Actualizar</a>
+
+                                  </td>
+                              </tr>
+                        <% } %> 
+                  <% } %> 
+                </tbody>
+            </table>
+        </div>
+
+        
+
